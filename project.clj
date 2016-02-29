@@ -24,6 +24,7 @@
                        :source-paths ["examples/thingie/src"]
                        :dependencies [[org.clojure/clojure "1.8.0"]
                                       [http-kit "2.1.19"]
+                                      [javax.servlet/servlet-api "2.5"]
                                       [reloaded.repl "0.2.1"]
                                       [com.stuartsierra/component "0.3.1"]]}
              :dev {:repl-options {:init-ns user}

@@ -16,12 +16,13 @@
 (defrecord HttpKit []
   component/Lifecycle
   (start [this]
-    (println "Server started at http://localhost:3000")
-    (assoc this :http-kit (httpkit/run-server
-                            (wrap-components
-                              #'app
-                              (select-keys this [:example]))
-                            {:port 3000})))
+    (let [port (Integer/parseInt (get (System/getenv) "PORT" "3000"))]
+      (println (str "Server started at http://localhost:" port))
+      (assoc this :http-kit (httpkit/run-server
+                              (wrap-components
+                                #'app
+                                (select-keys this [:example]))
+                              {:port port}))))
   (stop [this]
     (if-let [http-kit (:http-kit this)]
       (http-kit))

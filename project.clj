@@ -8,7 +8,7 @@
   :dependencies [[prismatic/plumbing "0.5.2"]
                  [potemkin "0.4.3"]
                  [cheshire "5.5.0"]
-                 [compojure "1.4.0"]
+                 [compojure "1.4.0" :exclusions [[org.clojure/clojure]]]
                  [prismatic/schema "1.0.5"]
                  [org.tobereplaced/lettercase "1.0.0"]
                  [frankiesardo/linked "1.2.6"]
@@ -17,6 +17,8 @@
                  [metosin/schema-tools "0.7.0"]
                  [ring-middleware-format "0.7.0"]
                  [metosin/ring-swagger-ui "2.1.4-0"]]
+  :min-lein-version "2.0.0"
+  :uberjar-name "compojure-api-standalone.jar"
   :profiles {:uberjar {:aot :all
                        :ring {:handler examples.thingie/app}
                        :source-paths ["examples/thingie/src"]
